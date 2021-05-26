@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :band_type %>
-    <%= form.number_field :band_type, id: :group_band_type %>
+    <%= form.select :band_type, options_for_select(@band_types) %>
   </div>
 
   <div class="actions">
