@@ -3,7 +3,7 @@ class ConcertsController < ApplicationController
 
   # GET /concerts or /concerts.json
   def index
-    @concerts = Concert.all
+    @concerts = Concert.eager_load(:group) #disminuye las consultas en el index
   end
 
   # GET /concerts/1 or /concerts/1.json

@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-    has_many :concerts 
+    has_many :concerts, dependent: :destroy
     enum band_type: ['Boyband','Girlband', 'Band']
 
 
