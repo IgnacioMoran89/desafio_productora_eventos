@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210526022937) do
+ActiveRecord::Schema.define(version: 20210529002105) do
 
   create_table "concerts", force: :cascade do |t|
     t.integer "attendance", default: 0
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20210526022937) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_concerts_on_group_id"
+  end
+
+  create_table "crews", force: :cascade do |t|
+    t.string "name"
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_crews_on_group_id"
   end
 
   create_table "groups", force: :cascade do |t|

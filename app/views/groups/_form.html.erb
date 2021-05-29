@@ -28,7 +28,15 @@
 
   <div class="field">
     <%= form.label :band_type %>
-    <%= form.select :band_type, options_for_select(@band_types) %>
+    <%= form.select :band_type, Group.band_types.keys %>
+
+  </div>
+
+  <div class="field">
+    <%= form.fields_for :crews do |crew_form|%>
+      <%= crew_form.label :name, 'Member Name' %>
+      <%= crew_form.text_field :name %>
+    <%end%>
   </div>
 
   <div class="actions">

@@ -16,8 +16,25 @@
 </p>
 
 <p>
-  <strong>Band type:</strong>
+  <strong>Band Type:</strong>
   <%= @group.band_type %>
+</p>
+
+
+<strong>Last Concert:</strong>
+  <% if @group.last_concert != "No concert date" %>
+    <%= @group.last_concert.strftime("%Y-%B-%A") %>
+  <%end%>
+</p>
+
+<p>
+    <strong>Max Attendance:</strong>
+    <%= @group.max_attendence %> personas
+</p>
+
+<p>
+    <strong>Concert Duration:</strong>
+    <%= @group.max_duration %> horas
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |

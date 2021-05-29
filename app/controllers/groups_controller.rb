@@ -1,10 +1,11 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i[ show edit update destroy ]
-  before_action :set_band_types, only: %i[ edit new]
+  
 
   # GET /groups or /groups.json
   def index
     @groups = Group.all
+    @concerts = Concert.all
   end
 
   # GET /groups/1 or /groups/1.json
@@ -14,7 +15,7 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
-    
+    @concerts = Concert.all
   end
 
   # GET /groups/1/edit
@@ -60,9 +61,7 @@ class GroupsController < ApplicationController
   end
 
   private
-  def set_band_types
-    @band_types = Group.band_types.keys
-  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       @group = Group.find(params[:id])
